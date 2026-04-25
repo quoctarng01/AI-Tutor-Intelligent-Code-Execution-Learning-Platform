@@ -24,7 +24,7 @@ graph LR
 | Frontend | React 18 + Vite | User interface, code editor, hint display |
 | Backend | FastAPI + SQLAlchemy | API endpoints, business logic, authentication |
 | Database | PostgreSQL | Persistent storage for sessions, exercises, hints, quizzes, surveys |
-| Code Execution | Judge0 CE / FastPythonSandbox | Secure execution of student code |
+| Code Execution | Local Python subprocess sandbox |Internalized execution engine using subprocess and resource-limiting modules (e.g., resource or signal).|
 | LLM Service | OpenAI GPT-4o-mini | Generation of adaptive hints (L3/L4) |
 
 ## 2.2 Data Flow
