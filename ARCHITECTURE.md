@@ -7,8 +7,8 @@ The AI Tutor is a full-stack web application that provides adaptive Python progr
 ```mermaid
 graph LR
     A[React Frontend] -->|Axios POST /submit| B[Python Backend]
-    B -->|Judge0 API| C[Code Execution Engine]
-    C -->|Result| B
+    B -->|Internal Call| C[Custom Sandbox Service]
+    C -->|Subprocess/Container Result| B
     B -->|JSON Response| A
     
     A -->|Axios POST /hint| B
@@ -161,7 +161,7 @@ window.location.href = '/login';
 | Hashing | passlib | 1.7.4+ | Password hashing |
 | HTTP Client | httpx | 0.28.1+ | Async HTTP calls |
 | **External Services** | | | |
-| Code Execution | Judge0 CE | — | Via RapidAPI or self-hosted |
+| Code Execution | Custom Python Sandbox|
 | LLM | OpenAI GPT-4o-mini | — | Hint generation (L3/L4) |
 | Caching | Redis | 5.2.0+ | Session and hint caching |
 | **Development** | | | |
@@ -190,10 +190,9 @@ The following referenced modules could not be located in the codebase:
 
 The following behaviors were inferred from usage patterns rather than direct observation:
 
-1. **Judge0 Integration**: The code references `evaluate_code()` from services but the actual Judge0 API call mechanism was not fully traced
-2. **LLM Caching**: Hints for L3/L4 are cached for 1 hour (`await cache.set(cache_key, hint_text, ttl=3600)`)
-3. **Rate Limiting**: Separate limits for general submissions (60/min) vs LLM hints (10/min)
-4. **Session Groups**: Sessions are tagged as 'tutor' or 'control' for A/B testing in the thesis study
+1. **LLM Caching**: Hints for L3/L4 are cached for 1 hour (`await cache.set(cache_key, hint_text, ttl=3600)`)
+2. **Rate Limiting**: Separate limits for general submissions (60/min) vs LLM hints (10/min)
+3. **Session Groups**: Sessions are tagged as 'tutor' or 'control' for A/B testing in the thesis study
 
 ### Questions for Future Contributors
 
@@ -201,7 +200,6 @@ The following behaviors were inferred from usage patterns rather than direct obs
 2. **Output Validator**: What specific patterns trigger the leakage detection?
 3. **Prompt Templates**: Where are the YAML hint templates stored? (`backend/prompts/`)
 4. **Redis Configuration**: Is Redis required for all deployments or optional?
-5. **Judge0 Deployment**: Is the RapidAPI proxy required or can self-hosted Judge0 be used?
 
 ### Missing Documentation
 
