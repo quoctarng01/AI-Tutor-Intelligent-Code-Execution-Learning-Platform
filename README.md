@@ -13,7 +13,7 @@
 ## 📺 Project Demo
 
 <p align="center">
-  <img src="./asset/image.gif" width="900" alt="AI Tutor Interface Demo">
+  <img src="./asset/demo.gif" width="900" alt="AI Tutor Interface Demo">
 </p>
 
 > **Key Feature:** The interface above shows the automated hint generation system and the Monaco-based code editor integrated with the Python backend.
