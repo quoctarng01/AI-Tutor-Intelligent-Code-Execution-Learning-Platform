@@ -161,7 +161,7 @@ window.location.href = '/login';
 | Hashing | passlib | 1.7.4+ | Password hashing |
 | HTTP Client | httpx | 0.28.1+ | Async HTTP calls |
 | **External Services** | | | |
-| Code Execution | Custom Python Sandbox|
+| Code Execution | Local Python subprocess sandbox|
 | LLM | OpenAI GPT-4o-mini | — | Hint generation (L3/L4) |
 | Caching | Redis | 5.2.0+ | Session and hint caching |
 | **Development** | | | |
