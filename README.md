@@ -112,4 +112,4 @@ cd frontend && npm run type-check
 
 ## License
 
-[MIT License](./LICENSE) — *Placeholder, update before release*
+[MIT License](./LICENSE) — *Nguyen Quoc Trang*
