@@ -1,7 +1,22 @@
 # AI Tutor
 
-An AI-powered Python programming tutor with a 4-level progressive hint system, code execution sandbox, pre/post assessment quizzes, and Likert scale survey collection for research data gathering.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.12+-3776AB?logo=python&logoColor=white)
+![Node](https://img.shields.io/badge/node-18+-339933?logo=node.js&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi&logoColor=white)
 
+> An AI-powered Python programming tutor built for educational research. Designed to study how
+> progressive hint delivery affects learning outcomes, it combines a secure code execution sandbox
+> with a 4-level adaptive hint system, pre/post assessments, and Likert scale surveys — enabling
+> rigorous A/B comparisons between tutored and control groups.
+
+## 📺 Project Demo
+
+<p align="center">
+  <img src="./assets/image.gif" width="900" alt="AI Tutor Interface Demo">
+</p>
+
+> **Key Feature:** The interface above shows the automated hint generation system and the Monaco-based code editor integrated with the Python backend.
 ## Features
 
 - **4-Level Progressive Hints**: Adaptive hint system that progressively reveals more information
@@ -84,6 +99,16 @@ See [.env.example](./.env.example) for all configuration options.
 | `OPENAI_API_KEY` | OpenAI API key for LLM hints | No |
 | `JUDGE0_API_KEY` | Judge0 RapidAPI key | No |
 
+## Graceful Degradation
+
+This project is fully functional without the optional services:
+
+| Without | Behaviour |
+|---------|-----------|
+| `OPENAI_API_KEY` | L3/L4 hints are disabled. Students still receive L1/L2 pre-authored hints. The tutor and all assessments remain fully operational. |
+| `JUDGE0_API_KEY` | The cloud Judge0 service is unavailable, but code execution falls back to the local Python subprocess sandbox automatically. All test case evaluation continues to work. |
+| Redis | Caching is skipped silently. No functionality is lost; responses may be marginally slower under load. |
+
 ## Running Tests
 
 ```bash
@@ -112,4 +137,4 @@ cd frontend && npm run type-check
 
 ## License
 
-[MIT License](./LICENSE) — *Nguyen Quoc Trang*
+[MIT License](./LICENSE) — Nguyen Quoc Trang
