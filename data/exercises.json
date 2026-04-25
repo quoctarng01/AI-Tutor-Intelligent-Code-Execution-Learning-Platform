@@ -1,0 +1,461 @@
+[
+  {
+    "id": "loops_001",
+    "topic": "loops",
+    "subtopic": "for_loop_range",
+    "title": "Print Numbers 1 to N",
+    "difficulty": 1,
+    "problem_statement": "Write a for loop that prints all integers from 1 to N inclusive.\nInput: A single integer N.\nOutput: Print each integer on a separate line.\nExample: N=5 → prints 1, 2, 3, 4, 5 each on its own line.",
+    "hint_l1": "A for loop repeats a block of code a fixed number of times. The range() function controls how many times it runs.",
+    "hint_l2": "Think about where range() should start and end to include both 1 and N. What happens with range(N) vs range(1, N+1)?",
+    "llm_context": "Student is writing a for loop with range(). Common errors: range(N) vs range(1,N+1), off-by-one errors.",
+    "concept": "for loop with range",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "5", "expected_output": "1\n2\n3\n4\n5"},
+        {"input": "1", "expected_output": "1"},
+        {"input": "3", "expected_output": "1\n2\n3"}
+      ]
+    },
+    "prerequisite_ids": [],
+    "common_mistakes": ["using range(N) instead of range(1, N+1)", "printing N instead of the loop variable"],
+    "tags": ["loops", "for", "range", "beginner"]
+  },
+  {
+    "id": "loops_002",
+    "topic": "loops",
+    "subtopic": "while_loop",
+    "title": "Count Down from N",
+    "difficulty": 1,
+    "problem_statement": "Write a while loop that counts down from N to 1, printing each number.\nInput: A single integer N.\nOutput: Print each number from N down to 1, each on its own line.\nExample: N=5 → prints 5, 4, 3, 2, 1 each on its own line.",
+    "hint_l1": "A while loop continues as long as its condition is true. You need to update the variable in each iteration.",
+    "hint_l2": "Start with N and decrement each time. What condition should keep the loop running? What update happens each iteration?",
+    "llm_context": "Student is learning while loops with decrementing counter. Common errors: infinite loops, wrong stopping condition.",
+    "concept": "while loop decrement",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "5", "expected_output": "5\n4\n3\n2\n1"},
+        {"input": "3", "expected_output": "3\n2\n1"},
+        {"input": "1", "expected_output": "1"}
+      ]
+    },
+    "prerequisite_ids": ["loops_001"],
+    "common_mistakes": ["infinite loop from not decrementing", "off-by-one in stopping condition"],
+    "tags": ["loops", "while", "decrement", "beginner"]
+  },
+  {
+    "id": "loops_003",
+    "topic": "loops",
+    "subtopic": "nested_loops",
+    "title": "Print Multiplication Table",
+    "difficulty": 2,
+    "problem_statement": "Write a program that prints a multiplication table from 1 to N.\nInput: A single integer N.\nOutput: Print N lines, where line i contains: i * 1, i * 2, ..., i * N\nFormat: Each number separated by spaces, with 4 character width.\nExample: N=3 →\n   1   2   3\n   2   4   6\n   3   6   9",
+    "hint_l1": "A nested loop has one loop inside another. The outer loop controls rows, the inner loop controls columns.",
+    "hint_l2": "The outer loop should go from 1 to N (for each row). The inner loop should also go from 1 to N (for each column in that row).",
+    "llm_context": "Student is learning nested loops for grid/table patterns. Common errors: wrong loop ranges, missing print formatting.",
+    "concept": "nested for loops",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "3", "expected_output": "   1   2   3\n   2   4   6\n   3   6   9"},
+        {"input": "2", "expected_output": "   1   2\n   2   4"}
+      ]
+    },
+    "prerequisite_ids": ["loops_001"],
+    "common_mistakes": ["inner loop using outer variable", "missing newline between rows"],
+    "tags": ["loops", "nested", "multiplication", "intermediate"]
+  },
+  {
+    "id": "conditionals_001",
+    "topic": "conditionals",
+    "subtopic": "if_statement",
+    "title": "Even or Odd",
+    "difficulty": 1,
+    "problem_statement": "Write a program that determines if a number is even or odd.\nInput: A single integer N.\nOutput: Print 'even' if N is even, 'odd' if N is odd.\nExample: 4 → even, 7 → odd",
+    "hint_l1": "The modulo operator (%) returns the remainder of division. Even numbers are divisible by 2 with no remainder.",
+    "hint_l2": "Think about what N % 2 equals when N is even versus odd. How can you use this in an if statement?",
+    "llm_context": "Student is learning if statements and the modulo operator. Focus on using % for divisibility checks.",
+    "concept": "if statement with modulo",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "4", "expected_output": "even"},
+        {"input": "7", "expected_output": "odd"},
+        {"input": "0", "expected_output": "even"}
+      ]
+    },
+    "prerequisite_ids": [],
+    "common_mistakes": ["using / instead of %", "wrong comparison operator"],
+    "tags": ["conditionals", "if", "modulo", "beginner"]
+  },
+  {
+    "id": "conditionals_002",
+    "topic": "conditionals",
+    "subtopic": "if_else",
+    "title": "Grade Calculator",
+    "difficulty": 2,
+    "problem_statement": "Write a program that converts a numeric score to a letter grade.\nInput: An integer score (0-100).\nOutput: Print the letter grade:\n- 90-100: A\n- 80-89: B\n- 70-79: C\n- 60-69: D\n- Below 60: F\nExample: 85 → B, 45 → F",
+    "hint_l1": "An if-elif-else chain checks conditions in order. Once a condition is true, its block executes and the rest are skipped.",
+    "hint_l2": "Start with the highest range and work down (or vice versa). Use elif for intermediate conditions and else for the final catch-all.",
+    "llm_context": "Student is learning if-elif-else chains for multi-way decisions. Emphasize elif order and the default else case.",
+    "concept": "if-elif-else chain",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "85", "expected_output": "B"},
+        {"input": "92", "expected_output": "A"},
+        {"input": "45", "expected_output": "F"},
+        {"input": "70", "expected_output": "C"}
+      ]
+    },
+    "prerequisite_ids": ["conditionals_001"],
+    "common_mistakes": ["using = instead of ==", "wrong order of conditions", "missing final else"],
+    "tags": ["conditionals", "if", "elif", "grade", "intermediate"]
+  },
+  {
+    "id": "conditionals_003",
+    "topic": "conditionals",
+    "subtopic": "logical_operators",
+    "title": "Triangle Validator",
+    "difficulty": 2,
+    "problem_statement": "Write a program that checks if three numbers can form a valid triangle.\nInput: Three integers a, b, c (one per line).\nOutput: Print 'valid' if the three numbers can form a triangle, 'invalid' otherwise.\nRule: Any two sides must sum to more than the third side.\nExample: 3, 4, 5 → valid; 1, 2, 5 → invalid",
+    "hint_l1": "For a triangle to be valid, ALL three conditions must be true: a+b>c AND a+c>b AND b+c>a.",
+    "hint_l2": "Use the 'and' operator to combine conditions. All three pairwise sums must be greater than the third side.",
+    "llm_context": "Student is learning logical operators (and, or, not). Triangle inequality theorem for validity check.",
+    "concept": "logical AND operator",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "3\n4\n5", "expected_output": "valid"},
+        {"input": "1\n2\n5", "expected_output": "invalid"},
+        {"input": "2\n2\n3", "expected_output": "valid"}
+      ]
+    },
+    "prerequisite_ids": ["conditionals_001"],
+    "common_mistakes": ["using or instead of and", "checking only one condition"],
+    "tags": ["conditionals", "logical", "and", "triangle", "intermediate"]
+  },
+  {
+    "id": "variables_001",
+    "topic": "variables",
+    "subtopic": "arithmetic",
+    "title": "Simple Calculator",
+    "difficulty": 1,
+    "problem_statement": "Write a program that performs basic arithmetic on two numbers.\nInput: Three lines: num1, operator, num2. Operators: +, -, *, /\nOutput: Print the result of the operation.\nExample:\n10\n+\n3\n→ 13\n\n5\n*\n4\n→ 20",
+    "hint_l1": "Variables store values that can be used and manipulated. Different operators perform different mathematical operations.",
+    "hint_l2": "In Python, you can use if-elif-else to check the operator and perform the corresponding arithmetic operation.",
+    "llm_context": "Student is learning variable assignment and arithmetic operations. Focus on mapping operator symbols to Python operations.",
+    "concept": "variable assignment and arithmetic",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "10\n+\n3", "expected_output": "13"},
+        {"input": "5\n*\n4", "expected_output": "20"},
+        {"input": "15\n-\n8", "expected_output": "7"}
+      ]
+    },
+    "prerequisite_ids": [],
+    "common_mistakes": ["not converting strings to numbers", "using wrong operator symbols"],
+    "tags": ["variables", "arithmetic", "input", "beginner"]
+  },
+  {
+    "id": "variables_002",
+    "topic": "variables",
+    "subtopic": "swapping",
+    "title": "Swap Two Numbers",
+    "difficulty": 1,
+    "problem_statement": "Write a program that swaps the values of two variables.\nInput: Two integers a and b (one per line).\nOutput: Print a and b in swapped order, separated by space.\nExample: 5, 3 → 3 5",
+    "hint_l1": "To swap variables, you need a temporary storage place. You can't just assign one to the other directly.",
+    "hint_l2": "Think about it step by step: store the first value somewhere, put the second value in the first spot, then put the stored value in the second spot.",
+    "llm_context": "Student is learning about variable swapping using a temporary variable. Classic technique for in-place swapping.",
+    "concept": "variable swapping with temp",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "5\n3", "expected_output": "3 5"},
+        {"input": "10\n20", "expected_output": "20 10"},
+        {"input": "7\n7", "expected_output": "7 7"}
+      ]
+    },
+    "prerequisite_ids": ["variables_001"],
+    "common_mistakes": ["forgetting temporary variable", "swapping in wrong order"],
+    "tags": ["variables", "swap", "temp", "beginner"]
+  },
+  {
+    "id": "variables_003",
+    "topic": "variables",
+    "subtopic": "accumulators",
+    "title": "Sum of Digits",
+    "difficulty": 2,
+    "problem_statement": "Write a program that calculates the sum of all digits in a number.\nInput: A non-negative integer N.\nOutput: Print the sum of all digits in N.\nExample: 1234 → 10 (1+2+3+4=10), 999 → 27",
+    "hint_l1": "The modulo operator (%) gives you the last digit, while integer division (//) removes the last digit.",
+    "hint_l2": "You can repeatedly extract the last digit with % 10, add it to a running total, then remove it with // 10. How many times should you repeat this?",
+    "llm_context": "Student is learning about accumulators and the digit extraction technique. Focus on using % and // together in a loop.",
+    "concept": "digit extraction with modulo",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "1234", "expected_output": "10"},
+        {"input": "999", "expected_output": "27"},
+        {"input": "0", "expected_output": "0"}
+      ]
+    },
+    "prerequisite_ids": ["loops_002", "variables_001"],
+    "common_mistakes": ["not initializing accumulator", "using string instead of arithmetic"],
+    "tags": ["variables", "modulo", "digits", "intermediate"]
+  },
+  {
+    "id": "functions_001",
+    "topic": "functions",
+    "subtopic": "basic_function",
+    "title": "Greeting Function",
+    "difficulty": 1,
+    "problem_statement": "Write a function called greet that takes a name and returns a greeting.\nInput: A string name (from input).\nOutput: Print the greeting.\nFunction signature: def greet(name): returns 'Hello, {name}!'\nExample: 'Alice' → Hello, Alice!",
+    "hint_l1": "A function groups code that performs a specific task. You define it once and can call it multiple times with different inputs.",
+    "hint_l2": "Use f-strings (f'Hello, {name}!') or string concatenation to combine the greeting with the name parameter.",
+    "llm_context": "Student is learning function definitions. Focus on def keyword, parameters, return values, and f-strings.",
+    "concept": "function definition with return",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "Alice", "expected_output": "Hello, Alice!"},
+        {"input": "World", "expected_output": "Hello, World!"}
+      ]
+    },
+    "prerequisite_ids": ["variables_001"],
+    "common_mistakes": ["not returning the value", "using print instead of return"],
+    "tags": ["functions", "return", "f-string", "beginner"]
+  },
+  {
+    "id": "functions_002",
+    "topic": "functions",
+    "subtopic": "function_parameters",
+    "title": "Rectangle Area",
+    "difficulty": 1,
+    "problem_statement": "Write a function called rectangle_area that takes width and height and returns the area.\nInput: Two integers width and height (one per line).\nOutput: Print the area.\nFunction signature: def rectangle_area(width, height): returns width * height\nExample: width=5, height=3 → 15",
+    "hint_l1": "Functions can take multiple parameters. The order matters - the first argument goes to the first parameter.",
+    "hint_l2": "Area of a rectangle is width times height. Simply multiply the two parameters and return the result.",
+    "llm_context": "Student is learning multiple function parameters. Focus on parameter order and basic multiplication.",
+    "concept": "function with multiple parameters",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "5\n3", "expected_output": "15"},
+        {"input": "10\n10", "expected_output": "100"},
+        {"input": "4\n7", "expected_output": "28"}
+      ]
+    },
+    "prerequisite_ids": ["functions_001"],
+    "common_mistakes": ["reversing width and height", "forgetting to multiply"],
+    "tags": ["functions", "parameters", "area", "beginner"]
+  },
+  {
+    "id": "functions_003",
+    "topic": "functions",
+    "subtopic": "default_parameters",
+    "title": "Power Function",
+    "difficulty": 2,
+    "problem_statement": "Write a function called power that calculates base raised to exponent.\nInput: Two integers base and exponent (one per line).\nOutput: Print the result.\nFunction signature: def power(base, exp=2): returns base ** exp\nDefault: If only one number is given, square it.\nExample: power(3) → 9, power(2, 3) → 8",
+    "hint_l1": "Default parameters allow a function to work with fewer arguments. You specify them in the function definition with equals sign.",
+    "hint_l2": "Use ** for exponentiation in Python. Set the default value of exp to 2 in the function signature: def power(base, exp=2):",
+    "llm_context": "Student is learning default parameters and the exponentiation operator. Focus on ** operator and default value syntax.",
+    "concept": "default parameters and exponentiation",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "3", "expected_output": "9"},
+        {"input": "2\n3", "expected_output": "8"},
+        {"input": "5\n1", "expected_output": "5"}
+      ]
+    },
+    "prerequisite_ids": ["functions_002"],
+    "common_mistakes": ["using * instead of **", "wrong order of default parameter"],
+    "tags": ["functions", "default", "exponentiation", "intermediate"]
+  },
+  {
+    "id": "lists_001",
+    "topic": "lists",
+    "subtopic": "list_creation",
+    "title": "Even Numbers List",
+    "difficulty": 1,
+    "problem_statement": "Write a program that creates a list of all even numbers from 1 to N.\nInput: An integer N.\nOutput: Print the list as Python list format.\nExample: N=10 → [2, 4, 6, 8, 10]",
+    "hint_l1": "Lists store multiple items. You can build a list by adding items one at a time using the append() method.",
+    "hint_l2": "Loop through numbers 1 to N, check if each is even with %, and append to a list if it is.",
+    "llm_context": "Student is learning list creation and the append method. Focus on empty list initialization and appending in a loop.",
+    "concept": "list creation and append",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "10", "expected_output": "[2, 4, 6, 8, 10]"},
+        {"input": "5", "expected_output": "[2, 4]"},
+        {"input": "1", "expected_output": "[]"}
+      ]
+    },
+    "prerequisite_ids": ["loops_001", "conditionals_001"],
+    "common_mistakes": ["starting from 0 instead of 2", "not checking divisibility correctly"],
+    "tags": ["lists", "append", "even", "beginner"]
+  },
+  {
+    "id": "lists_002",
+    "topic": "lists",
+    "subtopic": "list_comprehension",
+    "title": "List Comprehension Squares",
+    "difficulty": 2,
+    "problem_statement": "Write a program that creates a list of squares from 1 to N using list comprehension.\nInput: An integer N.\nOutput: Print the list.\nExample: N=5 → [1, 4, 9, 16, 25]",
+    "hint_l1": "List comprehension is a concise way to create lists. The syntax is: [expression for item in iterable]",
+    "hint_l2": "For squares: [x*x for x in range(1, N+1)]. This creates x*x for each x from 1 to N.",
+    "llm_context": "Student is learning list comprehension syntax. Focus on the for...in pattern and expression before the for.",
+    "concept": "list comprehension",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "5", "expected_output": "[1, 4, 9, 16, 25]"},
+        {"input": "3", "expected_output": "[1, 4, 9]"},
+        {"input": "1", "expected_output": "[1]"}
+      ]
+    },
+    "prerequisite_ids": ["lists_001"],
+    "common_mistakes": ["wrong expression order", "not including N in range"],
+    "tags": ["lists", "comprehension", "squares", "intermediate"]
+  },
+  {
+    "id": "lists_003",
+    "topic": "lists",
+    "subtopic": "list_operations",
+    "title": "Find Maximum",
+    "difficulty": 2,
+    "problem_statement": "Write a program that finds the maximum value in a list of numbers.\nInput: First line: N (number of elements). Second line: N space-separated integers.\nOutput: Print the maximum value.\nExample: N=5, numbers=3 7 2 9 1 → 9",
+    "hint_l1": "You can track the largest value seen so far in a variable, updating it when you find a larger one.",
+    "hint_l2": "Initialize a variable with the first element or negative infinity. Loop through each element, updating if current is greater.",
+    "llm_context": "Student is learning about list iteration and tracking state. Focus on the 'running max' pattern.",
+    "concept": "finding maximum in iteration",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "5\n3 7 2 9 1", "expected_output": "9"},
+        {"input": "3\n1 2 3", "expected_output": "3"},
+        {"input": "1\n42", "expected_output": "42"}
+      ]
+    },
+    "prerequisite_ids": ["lists_001", "variables_003"],
+    "common_mistakes": ["not initializing with correct starting value", "not updating correctly"],
+    "tags": ["lists", "iteration", "maximum", "intermediate"]
+  },
+  {
+    "id": "strings_001",
+    "topic": "strings",
+    "subtopic": "string_slicing",
+    "title": "Reverse a String",
+    "difficulty": 1,
+    "problem_statement": "Write a program that reverses a string.\nInput: A single line containing a string.\nOutput: Print the reversed string.\nExample: 'hello' → 'olleh'",
+    "hint_l1": "String slicing allows you to extract portions of a string. The syntax is string[start:end:step].",
+    "hint_l2": "What step value would let you traverse a string backwards? Remember that -1 steps go from end to start.",
+    "llm_context": "Student is learning string slicing with negative steps. Focus on the [::-1] pattern.",
+    "concept": "string slicing with negative step",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "hello", "expected_output": "olleh"},
+        {"input": "Python", "expected_output": "nohtyP"},
+        {"input": "a", "expected_output": "a"}
+      ]
+    },
+    "prerequisite_ids": [],
+    "common_mistakes": ["forgetting the step value", "using reverse() which is for lists"],
+    "tags": ["strings", "slicing", "reverse", "beginner"]
+  },
+  {
+    "id": "strings_002",
+    "topic": "strings",
+    "subtopic": "string_methods",
+    "title": "Count Vowels",
+    "difficulty": 1,
+    "problem_statement": "Write a program that counts the number of vowels in a string.\nInput: A single line containing a string.\nOutput: Print the count of vowels (a, e, i, o, u - case insensitive).\nExample: 'Hello World' → 3",
+    "hint_l1": "You can iterate through each character in a string and check if it's in a set of vowels.",
+    "hint_l2": "Convert the input to lowercase first to handle both uppercase and lowercase. Use a for loop and check membership in a set.",
+    "llm_context": "Student is learning string iteration and membership testing. Focus on the 'in' operator with a vowel set.",
+    "concept": "string iteration and membership testing",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "Hello World", "expected_output": "3"},
+        {"input": "AEIOU", "expected_output": "5"},
+        {"input": "rhythm", "expected_output": "0"}
+      ]
+    },
+    "prerequisite_ids": ["strings_001"],
+    "common_mistakes": ["not handling uppercase", "not defining vowels correctly"],
+    "tags": ["strings", "iteration", "vowels", "beginner"]
+  },
+  {
+    "id": "strings_003",
+    "topic": "strings",
+    "subtopic": "string_formatting",
+    "title": "String Palindrome",
+    "difficulty": 2,
+    "problem_statement": "Write a program that checks if a string is a palindrome.\nInput: A single line containing a string.\nOutput: Print 'palindrome' if the string reads the same forwards and backwards, otherwise print 'not palindrome'.\nExample: 'radar' → palindrome, 'hello' → not palindrome",
+    "hint_l1": "A palindrome reads the same forwards and backwards. You can compare the string with its reverse.",
+    "hint_l2": "First, consider normalizing the input - should spaces and uppercase matter? Then compare s == s[::-1].",
+    "llm_context": "Student is learning to combine string operations. Focus on comparing a string with its reversed version.",
+    "concept": "palindrome detection using reverse",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "radar", "expected_output": "palindrome"},
+        {"input": "hello", "expected_output": "not palindrome"},
+        {"input": "racecar", "expected_output": "palindrome"}
+      ]
+    },
+    "prerequisite_ids": ["strings_001"],
+    "common_mistakes": ["not considering case sensitivity", "not removing spaces when needed"],
+    "tags": ["strings", "palindrome", "reverse", "intermediate"]
+  },
+  {
+    "id": "strings_004",
+    "topic": "strings",
+    "subtopic": "string_searching",
+    "title": "Find Substring Position",
+    "difficulty": 2,
+    "problem_statement": "Write a program that finds the first occurrence of a substring in a string.\nInput: Two lines: main string and substring to find.\nOutput: Print the starting index (0-based) of the first occurrence, or -1 if not found.\nExample: main='hello world', sub='world' → 6",
+    "hint_l1": "The 'in' operator checks if a substring exists. Python also provides the find() method for strings.",
+    "hint_l2": "Use the find() method which returns the index of the first occurrence, or -1 if not found. Example: s.find('world')",
+    "llm_context": "Student is learning string search methods. Focus on the find() method and its return values.",
+    "concept": "string search with find()",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "hello world\nworld", "expected_output": "6"},
+        {"input": "hello\nxyz", "expected_output": "-1"},
+        {"input": "test\nt", "expected_output": "0"}
+      ]
+    },
+    "prerequisite_ids": ["strings_001"],
+    "common_mistakes": ["using index() which raises error", "not handling -1 case"],
+    "tags": ["strings", "search", "find", "intermediate"]
+  },
+  {
+    "id": "strings_005",
+    "topic": "strings",
+    "subtopic": "string_manipulation",
+    "title": "Word Counter",
+    "difficulty": 2,
+    "problem_statement": "Write a program that counts the number of words in a sentence.\nInput: A single line containing a sentence.\nOutput: Print the number of words (words are separated by spaces).\nExample: 'Hello world from Python' → 4",
+    "hint_l1": "The split() method breaks a string into a list of words based on a delimiter (default is whitespace).",
+    "hint_l2": "Use s.split() to split by spaces, then use len() to count the resulting list elements.",
+    "llm_context": "Student is learning string splitting and list length. Focus on the split() method without arguments.",
+    "concept": "string splitting and list length",
+    "correct_criteria": {
+      "type": "code_execution",
+      "test_cases": [
+        {"input": "Hello world from Python", "expected_output": "4"},
+        {"input": "One", "expected_output": "1"},
+        {"input": "   ", "expected_output": "0"}
+      ]
+    },
+    "prerequisite_ids": ["strings_001", "lists_001"],
+    "common_mistakes": ["not handling multiple spaces", "not using strip() before split()"],
+    "tags": ["strings", "split", "words", "intermediate"]
+  }
+]
